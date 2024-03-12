@@ -53,6 +53,7 @@ void print_tour(vector<TourCommand>& tcs)
     cout << "Total tour distance: " << std::fixed << std::setprecision(3) << total_dist << " miles\n";
 }
 
+/*
 int main(int argc, char *argv[])
 {
     if (argc != 3)
@@ -86,3 +87,4 @@ int main(int argc, char *argv[])
     else
         print_tour(tcs);
 }
+*/

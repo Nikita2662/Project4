@@ -1,1 +1,19 @@
-﻿
+﻿  tester.cpp
+C:\Nikita\College\CS32\PROJ 4\Project4\Project4\HashMap.h(90,27): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+  (compiling source file 'tester.cpp')
+  C:\Nikita\College\CS32\PROJ 4\Project4\Project4\HashMap.h(90,27):
+  the template instantiation context (the oldest one first) is
+  	C:\Nikita\College\CS32\PROJ 4\Project4\Project4\tester.cpp(8,18):
+  	see reference to class template instantiation 'HashMap<double>' being compiled
+  	C:\Nikita\College\CS32\PROJ 4\Project4\Project4\HashMap.h(64,2):
+  	while compiling class template member function 'HashMap<double>::HashMap(double)'
+  		C:\Nikita\College\CS32\PROJ 4\Project4\Project4\tester.cpp(8,27):
+  		see the first reference to 'HashMap<double>::HashMap' in 'foo'
+  	C:\Nikita\College\CS32\PROJ 4\Project4\Project4\HashMap.h(89,1):
+  	while compiling class template member function 'int HashMap<double>::hashFunc(const std::string) const'
+  		C:\Nikita\College\CS32\PROJ 4\Project4\Project4\HashMap.h(103,16):
+  		see the first reference to 'HashMap<double>::hashFunc' in 'HashMap<double>::insert'
+  		C:\Nikita\College\CS32\PROJ 4\Project4\Project4\tester.cpp(10,18):
+  		see the first reference to 'HashMap<double>::insert' in 'foo'
+  
+  Project4.vcxproj -> C:\Nikita\College\CS32\PROJ 4\Project4\x64\Debug\Project4.exe

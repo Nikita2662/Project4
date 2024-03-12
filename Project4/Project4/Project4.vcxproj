@@ -35,6 +35,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="router.cpp" />
     <ClCompile Include="support.cpp" />
+    <ClCompile Include="tester.cpp" />
     <ClCompile Include="tour_generator.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
