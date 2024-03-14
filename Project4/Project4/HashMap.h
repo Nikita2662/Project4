@@ -49,13 +49,13 @@ private:
 		Node* next;
 	};
 
+	// returns subscript of bucket that inputted key (string) will be stored in w/ its value
+	int hashFunc(const string s) const; // hashes a string to int, using STL's hash function
+
 	HashMap(const HashMap&) = delete; HashMap& operator=(const HashMap&) = delete;
 	double maxLoad;
 	int numAssociations;
 	vector<Node*> buckets;
-
-	// returns subscript of bucket that inputted key (string) will be stored in w/ its value
-	int hashFunc(const string s) const; // hashes a string to int, using STL's hash function
 };
 
 // TEMPLATE METHOD IMPLEMENTATIONS
