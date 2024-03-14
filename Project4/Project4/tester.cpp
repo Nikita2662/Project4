@@ -51,23 +51,6 @@ void getpoitester()
 		cout << "PoI not found!\n";
 }
 
-void getconnectedpointstester()
-{
-	GeoDatabase g;
-	g.load("mapdata.txt"); // assume this works to avoid error checking
-	//std::vector<GeoPoint> pts = g.get_connected_points(GeoPoint("34.0731003", "-118.4931016"));
-	//std::vector<GeoPoint> pts = g.get_connected_points(GeoPoint("34.0736122", "-118.4927669"));
-	//std::vector<GeoPoint> pts = g.get_connected_points(GeoPoint("34.0601422", "-118.4468929"));
-	std::vector<GeoPoint> pts = g.get_connected_points(GeoPoint("34.0600768", "-118.4467216"));
-	
-	if (pts.empty())
-		cout << "There are no points connected to your specified point\n";
-	else {
-		for (const auto p : pts)
-			cout << p.sLatitude << ", " << p.sLongitude << endl;
-	}
-}
-
 void getstreetnametester()
 {
 	GeoDatabase g;
@@ -95,11 +78,49 @@ void getstreetnametester()
 	*/
 }
 
+void getconnectedpointstester()
+{
+	GeoDatabase g;
+	g.load("C:/Nikita/College/CS32/PROJ 4/Project4/Project4/mapdata.txt"); // assume this works to avoid error checking
+	
+	/*std::vector<GeoPoint> pts = g.get_connected_points(GeoPoint("34.0731003", "-118.4931016"));
+	if (pts.empty())
+		cout << "There are no points connected to your specified point\n" << endl;
+	else {
+		for (const auto p : pts)
+			cout << p.sLatitude << ", " << p.sLongitude << endl;
+	}*/
+	
+	std::vector<GeoPoint> pts = g.get_connected_points(GeoPoint("34.0736122", "-118.4927669"));
+	if (pts.empty())
+		cout << "There are no points connected to your specified point\n" << endl;
+	else {
+		for (const auto p : pts)
+			cout << p.sLatitude << ", " << p.sLongitude << endl;
+	}
+
+	pts = g.get_connected_points(GeoPoint("34.0601422", "-118.4468929"));
+	if (pts.empty())
+		cout << "There are no points connected to your specified point\n" << endl;
+	else {
+		for (const auto p : pts)
+			cout << p.sLatitude << ", " << p.sLongitude << endl;
+	}
+
+	pts = g.get_connected_points(GeoPoint("34.0600768", "-118.4467216"));
+	if (pts.empty())
+		cout << "There are no points connected to your specified point\n" << endl;
+	else {
+		for (const auto p : pts)
+			cout << p.sLatitude << ", " << p.sLongitude << endl;
+	}
+}
+
 int main()
 {
-	//hashtester();   // WORKS
+	hashtester();   // WORKS
 	//loadtester();   // ??????
 	//getpoitester(); // WORKS
-	getconnectedpointstester(); // DSLKFJASKLDFJKLDSJAFKLDSJFKLJALKFJDSLKFSA
+	getconnectedpointstester();
 	//getstreetnametester(); // WORKS
 }

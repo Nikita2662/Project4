@@ -2,43 +2,14 @@
 C:\Nikita\College\CS32\PROJ 4\Project4\Project4\stops.h(32,45): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'geodb.cpp')
   
-C:\Nikita\College\CS32\PROJ 4\Project4\Project4\HashMap.h(90,27): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
-  (compiling source file 'geodb.cpp')
-  C:\Nikita\College\CS32\PROJ 4\Project4\Project4\HashMap.h(90,27):
-  the template instantiation context (the oldest one first) is
-  	C:\Nikita\College\CS32\PROJ 4\Project4\Project4\geodb.h(18,28):
-  	see reference to class template instantiation 'HashMap<std::vector<GeoPoint,std::allocator<GeoPoint>>>' being compiled
-  	C:\Nikita\College\CS32\PROJ 4\Project4\Project4\HashMap.h(64,2):
-  	while compiling class template member function 'HashMap<std::vector<GeoPoint,std::allocator<GeoPoint>>>::HashMap(double)'
-  		C:\Nikita\College\CS32\PROJ 4\Project4\Project4\geodb.cpp(10,28):
-  		see the first reference to 'HashMap<std::vector<GeoPoint,std::allocator<GeoPoint>>>::HashMap' in 'GeoDatabase::GeoDatabase'
-  	C:\Nikita\College\CS32\PROJ 4\Project4\Project4\HashMap.h(89,1):
-  	while compiling class template member function 'int HashMap<std::vector<GeoPoint,std::allocator<GeoPoint>>>::hashFunc(const std::string) const'
-  		C:\Nikita\College\CS32\PROJ 4\Project4\Project4\HashMap.h(103,16):
-  		see the first reference to 'HashMap<std::vector<GeoPoint,std::allocator<GeoPoint>>>::hashFunc' in 'HashMap<std::vector<GeoPoint,std::allocator<GeoPoint>>>::insert'
-  		C:\Nikita\College\CS32\PROJ 4\Project4\Project4\geodb.cpp(19,25):
-  		see the first reference to 'HashMap<std::vector<GeoPoint,std::allocator<GeoPoint>>>::insert' in 'GeoDatabase::createOneWayConnection'
+  main.cpp
+C:\Nikita\College\CS32\PROJ 4\Project4\Project4\stops.h(32,45): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
   
+  router.cpp
   tester.cpp
 C:\Nikita\College\CS32\PROJ 4\Project4\Project4\stops.h(32,45): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'tester.cpp')
-  
-C:\Nikita\College\CS32\PROJ 4\Project4\Project4\HashMap.h(90,27): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
-  (compiling source file 'tester.cpp')
-  C:\Nikita\College\CS32\PROJ 4\Project4\Project4\HashMap.h(90,27):
-  the template instantiation context (the oldest one first) is
-  	C:\Nikita\College\CS32\PROJ 4\Project4\Project4\tester.cpp(11,18):
-  	see reference to class template instantiation 'HashMap<double>' being compiled
-  	C:\Nikita\College\CS32\PROJ 4\Project4\Project4\HashMap.h(64,2):
-  	while compiling class template member function 'HashMap<double>::HashMap(double)'
-  		C:\Nikita\College\CS32\PROJ 4\Project4\Project4\tester.cpp(11,27):
-  		see the first reference to 'HashMap<double>::HashMap' in 'hashtester'
-  	C:\Nikita\College\CS32\PROJ 4\Project4\Project4\HashMap.h(89,1):
-  	while compiling class template member function 'int HashMap<double>::hashFunc(const std::string) const'
-  		C:\Nikita\College\CS32\PROJ 4\Project4\Project4\HashMap.h(103,16):
-  		see the first reference to 'HashMap<double>::hashFunc' in 'HashMap<double>::insert'
-  		C:\Nikita\College\CS32\PROJ 4\Project4\Project4\tester.cpp(14,18):
-  		see the first reference to 'HashMap<double>::insert' in 'hashtester'
   
   Generating Code...
   Project4.vcxproj -> C:\Nikita\College\CS32\PROJ 4\Project4\x64\Debug\Project4.exe

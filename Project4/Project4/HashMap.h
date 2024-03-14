@@ -55,6 +55,7 @@ private:
 	HashMap(const HashMap&) = delete; HashMap& operator=(const HashMap&) = delete;
 	double maxLoad;
 	int numAssociations;
+	int numBuckets;
 	vector<Node*> buckets;
 };
 
@@ -64,19 +65,23 @@ HashMap<typename T>::HashMap(double max_load) // constructor
 	: maxLoad(max_load), numAssociations(0)
 {
 	for (int i = 0; i < 10; i++)
+	{
 		buckets.push_back(nullptr); // adds 10 elems to buckets, each set to nullptr
+		numBuckets++;
+	}
 }
 
 template<typename T> 
 HashMap<typename T>::~HashMap() // destructor; deletes all of the items in the hashmap
 {
-	for (size_t k = 0; k < buckets.size(); k++) // iterate through each bucket
+	for (size_t k = 0; k < numBuckets; k++) // iterate through each bucket
 		while (buckets[k] != nullptr) // iterate through the linked list by pointer
 		{
 			Node* temp = buckets[k];
 			buckets[k] = buckets[k]->next;
 			delete temp;
 		}
+	numAssociations = 0;
 }
 
 template<typename T>
@@ -88,7 +93,7 @@ template<typename T>
 int HashMap<typename T>::hashFunc(const string s) const
 {
 	unsigned int hashedToInt = hash<string>()(s);
-	return (hashedToInt % buckets.size()); 
+	return (hashedToInt % numBuckets); 
 }
 
 // The insert method associates one item (key) with another (value).
@@ -113,28 +118,26 @@ void HashMap<typename T>::insert(const std::string& key, const T& value)
 	numAssociations++; // new key-value pair to be added
 
 	// IF REHASH REQUIRED:
-	if (numAssociations / buckets.size() > maxLoad) { // if load factor too big
-		HashMap<T>* rehash = new HashMap<T>(maxLoad);
+	if (numAssociations / numBuckets > maxLoad) { // if load factor too big
+		int oldNumBuckets = numBuckets;
+		numBuckets *= 2;
+		vector<Node*> bigger(numBuckets, nullptr);
 
-		for (int i = 0; i < (2 * buckets.size() - 10); i++) // rehash alr has 10 buckets, want total of 2*current num buckets
-			rehash->buckets.push_back(nullptr);
+		for (int i = 0; i < oldNumBuckets; i++) { // iterate through old buckets
+			if (buckets[i] == nullptr) continue;
 
-		for (size_t k = 0; k < buckets.size(); k++) // iterate through each bucket in old hashmap
-			for (Node* p = buckets[k]; p != nullptr; p=p->next) // iterate through each linked list by pointer
-				rehash->insert(p->key, p->value);
+			// all the Nodes belong where this Node's key belongs
+			int biggerSS = hashFunc(buckets[i]->key);
+			bigger[biggerSS] = buckets[i];
+		}
 
-		// replace current hash map w new hash map
-		this->numAssociations = rehash->numAssociations;
-		this->buckets.swap(rehash->buckets);
+		buckets.swap(bigger); // bigger, which now contains old Buckets, will be deleted out of scope
 
-		// delete the original hash map
-		delete rehash;
-
-		// because rehashed, update value of subscript for new hash map
 		subscript = hashFunc(key);
 	}
 	// end "IF REHASH REQUIRED" case
 
+	// insert to front of LL
 	Node* temp = buckets[subscript];
 	buckets[subscript] = new Node(key, value, temp);
 }

@@ -15,9 +15,8 @@ void GeoDatabase::createOneWayConnection(GeoPoint& source, GeoPoint& connected)
 {
 	vector<GeoPoint>* connections = connectedPoints.find(source.to_string()); // vector of connected Geopoints to source
 	if (connections == nullptr) { // first reading of "source" point so Node doesn't exist
-		vector<GeoPoint> temp;
-		connectedPoints.insert(source.to_string(), temp); // inserts the "source" point assoc. w empty vector
-		connections = &temp;
+		connections = new vector<GeoPoint>;
+		connectedPoints.insert(source.to_string(), *connections); // inserts the "source" point assoc. w empty vector
 	}
 	connections->push_back(connected);
 }

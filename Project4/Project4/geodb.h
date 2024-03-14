@@ -3,6 +3,8 @@
 
 #include "base_classes.h"
 #include "HashMap.h"
+#include <vector>
+using namespace std;
 
 class GeoDatabase : public GeoDatabaseBase
 {
