@@ -111,16 +111,24 @@ bool GeoDatabase::load(const std::string& map_data_file)
 
 bool GeoDatabase::get_poi_location(const std::string& poi, GeoPoint& point) const
 {
-	
+	const GeoPoint* loc = pointsOfInterest.find(poi);
+	if (loc == nullptr) return false; // no association found
+
+	point = *loc;
+	return true;
 }
 
 std::vector<GeoPoint> GeoDatabase::get_connected_points(const GeoPoint& pt) const
 {
-	vector<GeoPoint> n;
-	return n;
+	vector<GeoPoint> blank;
+	const vector<GeoPoint>* temp = connectedPoints.find(pt.to_string());
+	if (temp == nullptr) return blank;
+	return *temp;
 }
 
 std::string GeoDatabase::get_street_name(const GeoPoint& pt1, const GeoPoint& pt2) const
 {
-	return "";
+	const string* result = streetNamesOfSegments.find(pt1.to_string() + pt2.to_string());
+	if (result == nullptr) return "";
+	return *result;
 }
