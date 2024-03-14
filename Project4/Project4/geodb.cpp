@@ -128,7 +128,7 @@ std::vector<GeoPoint> GeoDatabase::get_connected_points(const GeoPoint& pt) cons
 
 std::string GeoDatabase::get_street_name(const GeoPoint& pt1, const GeoPoint& pt2) const
 {
-	const string* result = streetNamesOfSegments.find(pt1.to_string() + pt2.to_string());
+	const string* result = streetNamesOfSegments.find(pt1.to_string() + ";" + pt2.to_string());
 	if (result == nullptr) return "";
 	return *result;
 }

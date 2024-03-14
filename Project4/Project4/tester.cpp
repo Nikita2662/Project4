@@ -57,7 +57,8 @@ void getconnectedpointstester()
 	g.load("mapdata.txt"); // assume this works to avoid error checking
 	//std::vector<GeoPoint> pts = g.get_connected_points(GeoPoint("34.0731003", "-118.4931016"));
 	//std::vector<GeoPoint> pts = g.get_connected_points(GeoPoint("34.0736122", "-118.4927669"));
-	std::vector<GeoPoint> pts = g.get_connected_points(GeoPoint("34.0601422", "-118.4468929"));
+	//std::vector<GeoPoint> pts = g.get_connected_points(GeoPoint("34.0601422", "-118.4468929"));
+	std::vector<GeoPoint> pts = g.get_connected_points(GeoPoint("34.0600768", "-118.4467216"));
 	
 	if (pts.empty())
 		cout << "There are no points connected to your specified point\n";
@@ -72,17 +73,26 @@ void getstreetnametester()
 	GeoDatabase g;
 	g.load("mapdata.txt"); // assume this works to avoid error checking
 
+	/* WORKS
 	GeoPoint p1("34.0732851", "-118.4931016");
 	GeoPoint p2("34.0736122", "-118.4927669");
-	cout << g.get_street_name(p1, p2); // writes "Glenmere Way"
+	cout << g.get_street_name(p1, p2) << endl; // writes "Glenmere Way"
 	cout << g.get_street_name(p2, p1); // writes "Glenmere Way"
+	*/
 
-	/*
+	/* WORKS
 	GeoPoint p1("34.0601422", "-118.4468929");
 	GeoPoint p2("34.0600768", "-118.4467216");
-	cout << g.get_street_name(p1, p2); // writes "a path"
-	cout << g.get_street_name(p2, p1); // writes "a path" */
+	cout << g.get_street_name(p1, p2) << endl; // writes "a path"
+	cout << g.get_street_name(p2, p1); // writes "a path"
+	*/
 
+	/* WORKS
+	GeoPoint p1("34.0602175", "-118.4464952");
+	GeoPoint p2("34.0600768", "-118.4467216");
+	cout << g.get_street_name(p1, p2) << endl; // writes "Kinross Avenue"
+	cout << g.get_street_name(p2, p1); // writes "Kinross Avenue"
+	*/
 }
 
 int main()
@@ -90,6 +100,6 @@ int main()
 	//hashtester();   // WORKS
 	//loadtester();   // ??????
 	//getpoitester(); // WORKS
-				// getconnectedpointstester(); // DSLKFJASKLDFJKLDSJAFKLDSJFKLJALKFJDSLKFSA
-	getstreetnametester();
+	getconnectedpointstester(); // DSLKFJASKLDFJKLDSJAFKLDSJFKLJALKFJDSLKFSA
+	//getstreetnametester(); // WORKS
 }
