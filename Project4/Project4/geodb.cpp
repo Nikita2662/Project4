@@ -14,11 +14,9 @@ GeoDatabase::~GeoDatabase() {}
 void GeoDatabase::createOneWayConnection(GeoPoint& source, GeoPoint& connected)
 {
 	vector<GeoPoint>* connections = connectedPoints.find(source.to_string()); // vector of connected Geopoints to source
-	if (connections == nullptr) { // first reading of "source" point so Node doesn't exist
-		connections = new vector<GeoPoint>;
-		connectedPoints.insert(source.to_string(), *connections); // inserts the "source" point assoc. w empty vector
-	}
-	connections->push_back(connected);
+	if (connections == nullptr) // first reading of "source" point so Node doesn't exist
+		connectedPoints.insert(source.to_string(), {connected}); // inserts the "source" point assoc. w empty vector
+	else connections->push_back(connected);
 }
 
 bool GeoDatabase::load(const std::string& map_data_file)
