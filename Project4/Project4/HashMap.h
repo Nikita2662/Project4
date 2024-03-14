@@ -120,8 +120,8 @@ void HashMap<typename T>::insert(const std::string& key, const T& value)
 			rehash->buckets.push_back(nullptr);
 
 		for (size_t k = 0; k < buckets.size(); k++) // iterate through each bucket in old hashmap
-			while (buckets[k] != nullptr) // iterate through each linked list by pointer
-				rehash->insert(buckets[k]->key, buckets[k]->value);
+			for (Node* p = buckets[k]; p != nullptr; p=p->next) // iterate through each linked list by pointer
+				rehash->insert(p->key, p->value);
 
 		// replace current hash map w new hash map
 		this->numAssociations = rehash->numAssociations;

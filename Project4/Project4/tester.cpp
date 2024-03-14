@@ -1,4 +1,5 @@
 #include "HashMap.h"
+#include "geodb.h"
 #include <iostream>
 #include <cassert>
 
@@ -31,7 +32,15 @@ void hashtester()
 	cout << endl << "All tests passed";
 }
 
+void geodbtester()
+{
+	GeoDatabase g;
+	g.load("C:/Nikita/College/CS32/PROJ 4/Project4/Project4/tiny1.txt");
+}
+
 int main()
 {
-	hashtester();
+	//hashtester();
+	geodbtester();
+
 }
