@@ -1,6 +1,7 @@
 #include "HashMap.h"
 #include "geodb.h"
 #include "geopoint.h"
+#include "router.h"
 #include <iostream>
 #include <cassert>
 
@@ -116,6 +117,20 @@ void getconnectedpointstester()
 	}
 }
 
+void routertest() {
+	GeoDatabase g;
+	g.load("C:/Nikita/College/CS32/PROJ 4/Project4/Project4/mapdata.txt"); // assume this works to avoid error checking
+
+	Router rout(g);
+	vector<GeoPoint> v = rout.route(GeoPoint("34.0625329","-118.4470263"), GeoPoint("34.0685657","-118.4489289"));
+	
+	for (GeoPoint pt : v)
+	{
+		cout << pt.to_string() << '\n';
+	}
+}
+
+/*
 int main()
 {
 	//hashtester();   // WORKS
@@ -123,4 +138,6 @@ int main()
 	//getpoitester(); // WORKS
 	//getconnectedpointstester(); // WORKS
 	//getstreetnametester(); // WORKS
+	routertest();
 }
+*/

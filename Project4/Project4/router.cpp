@@ -65,20 +65,6 @@ vector<GeoPoint> Router::route(const GeoPoint& pt1, const GeoPoint& pt2) const
 				cameFrom[(*next).to_string()] = curr;
 			}
 		}
-
-		return {};
 	}
-
-
-
-	//frontier.push(make_pair(pt1, h(pt1, pt2)));
-	
-	
-
-
-
-	// return vector of GeoPoints that lead from pt1 to pt2, inclusive
-	// can contain midpoints + POIs as well as actual endpoints too (essentially, connectedPoints -- all the keys)
-	
-
+	return {};
 }
