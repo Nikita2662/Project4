@@ -118,9 +118,9 @@ void getconnectedpointstester()
 
 int main()
 {
-	hashtester();   // WORKS
+	//hashtester();   // WORKS
 	//loadtester();   // ??????
 	//getpoitester(); // WORKS
-	getconnectedpointstester();
+	//getconnectedpointstester(); // WORKS
 	//getstreetnametester(); // WORKS
 }
